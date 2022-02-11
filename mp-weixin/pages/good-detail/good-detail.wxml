@@ -1,0 +1,34 @@
+<view class="goods_detail">
+    <swiper indicator-dots="{{true}}">
+        <block wx:for="{{swipers}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+            <swiper-item>
+                <image src="{{item}}"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="box1">
+        <view class="goods_name">{{''+good.title+''}}</view>
+        <view class="price">
+            <text>{{"￥"+good.price}}</text>
+            <text>{{"￥"+good.sales}}</text>
+        </view>
+        <view class="number">
+            <text>{{"销量："+good.sellnumber}}</text>
+            <text>{{"库存："+good.goodnumber}}</text>
+            <text>{{"浏览量："+good.clicknum}}</text>
+        </view>
+    </view>
+    <view class="line"></view>
+    <view class="line"></view>
+    <view class="box3">
+        <view class="content">
+            <view class="d-header">
+                <text>图文详情</text>
+            </view>
+            <rich-text nodes="{{content}}"></rich-text>
+        </view>
+    </view>
+    <view class="goods_navi">
+        <uni-goods-nav vue-id="099d0f08-1" fill="{{true}}" options="{{options}}" buttonGroup="{{buttonGroup}}" data-event-opts="{{[['^click',[['onClick']]],['^buttonClick',[['buttonClick']]]]}}" bind:click="__e" bind:buttonClick="__e" bind:__l="__l"></uni-goods-nav>
+    </view>
+</view>

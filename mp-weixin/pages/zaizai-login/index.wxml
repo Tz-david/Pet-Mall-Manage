@@ -1,0 +1,1 @@
+<view class="zai-box"><image class="zai-logo" src="../../static/zaizai-login/login.png" mode="aspectFit"></image><view class="zai-title">宠物商城</view><view class="zai-form-wx"><button class="zai-btn-wx" open-type="getUserInfo" data-event-opts="{{[['getuserinfo',[['login_weixin',['$event']]]]]}}" bindgetuserinfo="__e">微信登录</button></view></view>

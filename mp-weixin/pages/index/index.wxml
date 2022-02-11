@@ -1,0 +1,49 @@
+<view class="container">
+    <view class="mp-search-box">
+        <input class="ser-input" type="text" value="输入关键字搜索" disabled="{{true}}" />
+    </view>
+    <view class="carousel-section">
+        <view class="titleNview-placing"></view>
+        <swiper class="carousel" circular="{{true}}" data-event-opts="{{[['change',[['swiperChange',['$event']]]]]}}" bindchange="__e">
+            <block wx:for="{{carouselList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+                <swiper-item data-event-opts="{{[['tap',[['navSwipeToDetailPage',['$0'],[[['carouselList','',index]]]]]]]}}" class="carousel-item" bindtap="__e">
+                    <image src="{{item.image}}"></image>
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="swiper-dots">
+            <text class="num">{{swiperCurrent+1}}</text>
+            <text class="sign">/</text>
+            <text class="num">{{swiperLength}}</text>
+        </view>
+    </view>
+    <view class="f-header m-t">
+        <image src="/static/temp/h1.png"></image>
+        <view class="tit-box">
+            <text class="tit">好物推荐</text>
+            <text class="tit2">Good things recommended</text>
+        </view>
+        <text class="yticon icon-you"></text>
+    </view>
+    <view class="group-section">
+        <swiper class="g-swiper" duration="{{500}}">
+            <block wx:for="{{goodsList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+                <swiper-item data-event-opts="{{[['tap',[['navToDetailPage',['$0'],[[['goodsList','',index]]]]]]]}}" class="g-swiper-item" bindtap="__e">
+                    <view class="g-item left">
+                        <image src="{{item.image}}" mode="aspectFill"></image>
+                        <view class="t-box">
+                            <text class="title clamp">{{item.title}}</text>
+                            <view class="price-box">
+                                <view>
+                                    <text class="price">{{"￥"+item.price}}</text>
+                                    <text class="m-price">{{"￥"+item.sales}}</text>
+                                </view>
+                                <text class="clickNum">{{"浏览量 "+item.clicknum}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+</view>
